@@ -1,0 +1,18 @@
+services:
+    web-app:
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/code
+        networks:
+          - web-app-network
+          - redis-network
+    redis:
+        image: redis
+        networks:
+          - redis-network
+networks:
+  web-app-network: {}
+  redis-network: {}
+

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: exercise-three
+  namespace: wojtowiczn
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sh", "-c", "while true; do sleep 30; echo 'Working '$(date +'%T')''; done"]
+    ports:
+    - containerPort: 8081
+  - name: redis
+    image: redis
+    ports:
+    - containerPort: 8082
+

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: exercise-four
+  name: exercise-four
+  namespace: wojtowiczn
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: exercise-four
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: exercise-four
+    spec:
+      containers:
+      - image: httpd:2.4-alpine:latest
+        name: httpd
+        resources: {}
+status: {}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-one
+  labels:
+    name: pod-one
+  namespace: wojtowiczn
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sh", "-c", "while true; do sleep 30; echo 'Working '$(date +'%T')''; done"]
+

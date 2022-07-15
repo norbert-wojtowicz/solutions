@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-set
+  labels:
+    name: replica-set
+  namespace: wojtowiczn
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: pod-one
+  template:
+    metadata:
+      labels:
+        name: pod-one
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command: ["sh", "-c", "while true; do sleep 30; echo 'Working '$(date +'%T')''; done"]
+
